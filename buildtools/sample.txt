@@ -1,0 +1,96 @@
+./startSQLRepository -m ATGProject -repository /sample/EmployeeRepository -database oracle -outputSQL
+
+<add-item item-descriptor="employee" id="a101">
+  <set-property name="firstName"><![CDATA[Nagarajan]]></set-property>
+  <set-property name="lastName"><![CDATA[Seshadri]]></set-property>
+  <set-property name="dob"><![CDATA[__NULL__]]></set-property>
+  <set-property name="doj"><![CDATA[__NULL__]]></set-property>
+  <set-property name="department"><![CDATA[Software]]></set-property>
+</add-item>
+
+<print-item item-descriptor="employee" id="a101"/>
+
+DynamoHttpServletRequest dynRequest = ServletUtil.getCurrentRequest();
+Repository employeeRepo = (Repository)dynRequest.resolveName("/sample/EmployeeRepository");
+RepositoryItem employeeItem = employeeRepo.getItem("a101","employee");
+MutableRepositoryItem mutableEmployeeItem = employeeRepo.getItemForUpdate("a101","employee");
+
+mutableEmployeeItem.setPropertyValue()
+
+employeeRepo.createItem
+employeeRepo.addItem
+
+employeeRepo.updateItem
+employeeRepo.removeItem
+
+<add-item item-descriptor="department" id="d101">
+  <set-property name="name"><![CDATA[Accounts]]></set-property>
+</add-item>
+
+<add-item item-descriptor="department" id="d102">
+  <set-property name="name"><![CDATA[HR]]></set-property>
+</add-item>
+
+<add-item item-descriptor="department" id="d103">
+  <set-property name="name"><![CDATA[IT]]></set-property>
+</add-item>
+
+<add-item item-descriptor="address" id="addr101">
+  <set-property name="address1"><![CDATA[Amsterdamsestraatweg]]></set-property>
+  <set-property name="address2"><![CDATA[169G]]></set-property>
+  <set-property name="city"><![CDATA[Utrecht]]></set-property>
+  <set-property name="state"><![CDATA[Utrecht]]></set-property>
+  <set-property name="country"><![CDATA[Netherlands]]></set-property>
+  <set-property name="zipcode"><![CDATA[3551CA]]></set-property>
+</add-item>
+
+<add-item item-descriptor="address" id="addr102">
+  <set-property name="address1"><![CDATA[84,Sangam Street]]></set-property>
+  <set-property name="address2"><![CDATA[Padmanabha Nagar]]></set-property>
+  <set-property name="city"><![CDATA[Chennai]]></set-property>
+  <set-property name="state"><![CDATA[Tamilnadu]]></set-property>
+  <set-property name="country"><![CDATA[India]]></set-property>
+  <set-property name="zipcode"><![CDATA[600044]]></set-property>
+</add-item>
+
+<add-item item-descriptor="address" id="addr101">
+  <set-property name="address1"><![CDATA[Amsterdamsestraatweg]]></set-property>
+  <set-property name="address2"><![CDATA[169G]]></set-property>
+  <set-property name="city"><![CDATA[Utrecht]]></set-property>
+  <set-property name="state"><![CDATA[Utrecht]]></set-property>
+  <set-property name="country"><![CDATA[Netherlands]]></set-property>
+  <set-property name="zipcode"><![CDATA[3551CA]]></set-property>
+</add-item>
+
+<add-item item-descriptor="address" id="addr103">
+  <set-property name="address1"><![CDATA[1-B/2, Iswarya Flats]]></set-property>
+  <set-property name="address2"><![CDATA[Shastri Nagar, 1st Avenue]]></set-property>
+  <set-property name="city"><![CDATA[Chennai]]></set-property>
+  <set-property name="state"><![CDATA[Tamilnadu]]></set-property>
+  <set-property name="country"><![CDATA[India]]></set-property>
+  <set-property name="zipcode"><![CDATA[600020]]></set-property>
+</add-item>
+
+<add-item item-descriptor="employee" id="e101">
+  <set-property name="firstName"><![CDATA[Nagarajan]]></set-property>
+  <set-property name="lastName"><![CDATA[Seshadri]]></set-property>
+  <set-property name="dob"><![CDATA[__NULL__]]></set-property>
+  <set-property name="doj"><![CDATA[__NULL__]]></set-property>
+  <set-property name="department"><![CDATA[d103]]></set-property>
+  <set-property name="interests"><![CDATA[hiking,travel,computers]]></set-property>
+  <set-property name="addresses"><![CDATA[Netherlands=addr101,India=addr102]]></set-property>
+  <set-property name="projects"><![CDATA[Metlife,GFS,Sonaepar]]></set-property>
+</add-item>
+
+<add-item item-descriptor="employee" id="e102">
+  <set-property name="firstName"><![CDATA[Srilakshmi]]></set-property>
+  <set-property name="lastName"><![CDATA[Sampath]]></set-property>
+  <set-property name="dob"><![CDATA[__NULL__]]></set-property>
+  <set-property name="doj"><![CDATA[__NULL__]]></set-property>
+  <set-property name="department"><![CDATA[d102]]></set-property>
+  <set-property name="interests"><![CDATA[hiking,music,computers]]></set-property>
+  <set-property name="addresses"><![CDATA[Netherlands=addr101,India=addr103]]></set-property>
+  <set-property name="projects"><![CDATA[Reebok,Verizon,ZFS]]></set-property>
+</add-item>
+
+

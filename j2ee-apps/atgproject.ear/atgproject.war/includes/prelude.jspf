@@ -1,0 +1,21 @@
+<%-- 
+    This file is included in all *.jsp files. It is specified by an include-prelude 
+    option in web.xml.
+    NOTE: Do not set a contentType directive in this file as some JSPs will render
+    text/html, whereas others will render other mime types, including application/json.
+--%>
+
+<%@include file="/includes/taglibs.jspf"%>
+
+<dsp:page>
+	<dsp:getvalueof var="locale" bean="/atg/dynamo/servlet/RequestLocale.locale" />
+	<fmt:setLocale value="${locale}" scope="request" />
+
+	<%-- 
+        Set the default value for the xml="..." attribute on the dsp:page tags.
+        It makes sure that the end tags are not created separately and also 
+        the delimeter for query params is set to &amp; as against &
+    --%>
+	<dsp:setxml value="true" />
+
+</dsp:page>

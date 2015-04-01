@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<web-app version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <display-name>ATG Project</display-name>
+    <description>ATG Project</description>
+    <context-param>
+        <param-name>atg.session.parentContextName</param-name>
+        <param-value>/dyn</param-value>
+    </context-param>
+    <context-param>
+        <param-name>atg.dafear.bootstrapContextName</param-name>
+        <param-value>/dyn</param-value>
+    </context-param>
+    <context-param>
+        <param-name>context-root</param-name>
+        <param-value>/project</param-value>
+    </context-param>
+    <filter>
+        <filter-name>ErrorFilter</filter-name>
+        <filter-class>atg.servlet.ErrorFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ErrorFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter>
+        <filter-name>ForwardFilter</filter-name>
+        <filter-class>atg.servlet.ForwardFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ForwardFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <filter>
+        <filter-name>PageFilter</filter-name>
+        <filter-class>atg.filter.dspjsp.PageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PageFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>NucleusServlet</servlet-name>
+        <servlet-class>atg.nucleus.servlet.NucleusServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>DynamoProxyServlet</servlet-name>
+        <servlet-class>atg.nucleus.servlet.NucleusProxyServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <listener>
+        <listener-class>atg.taglib.dspjsp.RegisterELResolverServletContextListener</listener-class>
+    </listener>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/includes/prelude.jspf</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

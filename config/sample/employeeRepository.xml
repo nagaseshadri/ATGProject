@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gsa-template SYSTEM "http://www.atg.com/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+
+    <item-descriptor name="employee">
+    	<table name="atgproj_employee" type="primary" id-column-name="id">
+    		<property name="firstName" column-name="first_name" data-type="string"/>
+    		<property name="lastName" column-name="last_name" data-type="string"/>
+    		<property name="dob" column-name="dob" data-type="date"/>
+    		<property name="doj" column-name="doj" data-type="date"/>
+    		<property name="department" column-name="dept_id" item-type="department"/>
+    		<property name="deptId" column-name="dept_id" data-type="string"/>
+    	</table>
+    	<table name="atgproj_emp_salary" type="auxiliary" id-column-name="emp_id">
+    		<property name="basic" column-name="basic" data-type="double"/>
+    		<property name="hra" column-name="hra" data-type="double"/>
+    		<property name="da" column-name="da" data-type="double"/>
+    		<property name="cca" column-name="cca" data-type="double"/>
+    		<property name="ta" column-name="ta" data-type="double"/>
+    	</table>
+    	<table name="atgproj_emp_interests" type="multi" id-column-name="emp_id">
+    		<property name="interests" column-name="interest" data-type="set" component-data-type="string"/>
+    	</table>
+    	<table name="atgproj_emp_address" type="multi" multi-column-name="tag" id-column-name="emp_id" >
+    		<property name="addresses" column-name="address_id" data-type="map" component-item-type="address"/>
+    	</table>
+    	<table name="atgproj_emp_projects" type="multi" multi-column-name="idx" id-column-name="emp_id" >
+    		<property name="projects" column-name="project" data-type="list" component-data-type="string"/>
+    	</table>
+	</item-descriptor>
+	
+	<item-descriptor name="department">
+    	<table name="atgproj_department" type="primary" id-column-name="id">
+    		<property name="name" column-name="name" data-type="string"/>
+    	</table>
+	</item-descriptor>
+	
+	<item-descriptor name="address">
+    	<table name="atgproj_address" type="primary" id-column-name="id">
+    		<property name="address1" column-name="address1" data-type="string"/>
+    		<property name="address2" column-name="address2" data-type="string"/>
+    		<property name="city" column-name="city" data-type="string"/>
+    		<property name="state" column-name="state" data-type="string"/>
+    		<property name="country" column-name="country" data-type="string"/>
+    		<property name="zipcode" column-name="zip_code" data-type="string"/>
+    	</table>
+	</item-descriptor>
+	
+	
+</gsa-template>

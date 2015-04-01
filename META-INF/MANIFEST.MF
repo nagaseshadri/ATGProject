@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+ATG-Product-Full: ATGProject
+ATG-Required: DSS
+ATG-Config-Path: config
+ATG-Class-Path: classes
+ATG-EAR-Module: j2ee-apps/atgproject.ear
+ATG-J2EE: j2ee-apps/atgproject.ear
