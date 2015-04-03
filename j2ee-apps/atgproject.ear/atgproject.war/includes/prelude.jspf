@@ -9,7 +9,6 @@
 
 <dsp:page>
 	<dsp:getvalueof var="locale" bean="/atg/dynamo/servlet/RequestLocale.locale" />
-	<fmt:setLocale value="${locale}" scope="request" />
 
 	<%-- 
         Set the default value for the xml="..." attribute on the dsp:page tags.

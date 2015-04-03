@@ -1,17 +1,21 @@
 <%@include file="includes/taglibs.jspf" %>
 <dsp:page>
-karthik <dsp:valueof bean="/atg/dynamo/service/CurrentDate.secondAsDate"/>
+  <dsp:importbean bean="/atg/dynamo/service/CurrentDate"/>
+  <dsp:importbean bean="/atg/dynamo/droplet/RQLQueryForEach"/>
+  <dsp:importbean bean="/sample/EmployeeRepository"/>
+  
+karthik <dsp:valueof bean="CurrentDate.secondAsDate"/>
 
 
-<dsp:droplet name="/atg/dynamo/droplet/RQLQueryForEach">
-  <dsp:param name="queryRQL" value="interests INCLUDES \"joking\""/>
-  <dsp:param name="repository" value="/sample/EmployeeRepository"/>
+<dsp:droplet name="RQLQueryForEach">
+  <dsp:param name="queryRQL" value="interests INCLUDES \"hiking\""/>
+  <dsp:param name="repository" bean="EmployeeRepository"/>
   <dsp:param name="itemDescriptor" value="employee"/>
   <dsp:oparam name="outputStart">
    <p>header
   </dsp:oparam>
   <dsp:oparam name="output">
-    <p>OUTPUT :: <dsp:valueof param="element.lastName"/>,<dsp:valueof param="element.firstName"/> ::  <dsp:valueof param="count"/> :: <dsp:valueof param="index"/>
+    <p>OUTPUT :: <dsp:valueof param="element.lastName"/>, <dsp:valueof param="element.firstName"/> ::  <dsp:valueof param="count"/> :: <dsp:valueof param="index"/> :: <dsp:valueof param="element.interests"/>
   </dsp:oparam>
   <dsp:oparam name="error">
     <p>ERROR :: <dsp:valueof param="error"/>
